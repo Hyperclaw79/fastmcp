@@ -1,0 +1,34 @@
+---
+title: key_management
+sidebarTitle: key_management
+---
+
+# `fastmcp.utilities.key_management`
+
+
+Key management utilities for FastMCP.
+
+Provides automatic key generation and storage in system keyring for
+Mac/Windows platforms, with graceful fallback for Linux/headless systems.
+
+
+## Functions
+
+### `get_or_generate_keyring_key` <sup><a href="https://github.com/jlowin/fastmcp/blob/main/src/fastmcp/utilities/key_management.py#L20" target="_blank"><Icon icon="github" style="width: 14px; height: 14px;" /></a></sup>
+
+```python
+get_or_generate_keyring_key(key_type: str, namespace: str) -> str | None
+```
+
+
+Get or generate a key from the system keyring.
+
+Keys are namespaced to allow multiple isolated key sets.
+
+**Args:**
+- `key_type`: Type of key (e.g., "jwt-signing", "token-encryption", "api-key")
+- `namespace`: Unique identifier for this key set (e.g., client ID, server name)
+
+**Returns:**
+- Base64-encoded key string, or None if keyring unavailable
+
